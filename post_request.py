@@ -1,15 +1,15 @@
 
 import requests
 
-inputdata = {'age': 28,
+inputdata = {'age': 19,
 
 'workclass': 'Private',
 
-'fnlgt': 338409,
+'fnlgt': 12234,
 
 'education': 'Bachelors',
 
-'education_num': 13,
+'education_num': 12,
 
 'marital_status': 'Married_civ_spouse',
 
@@ -17,7 +17,7 @@ inputdata = {'age': 28,
 
 'relationship': 'Wife',
 
-'race': 'Black',
+'race': 'White',
 
 'sex': 'Female',
 
