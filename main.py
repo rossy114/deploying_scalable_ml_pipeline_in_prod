@@ -6,8 +6,11 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 #Import the inference function to be used to predict the values
-from starter.ml.model import inference
-from starter.ml.data import process_data
+# from starter.ml.model import inference
+# from starter.ml.data import process_data
+from ml.model import inference
+from ml.data import process_data
+
 
 #Give Heroku the ability to pull in data from DVC upon app start up.
 # if "DYNO" in os.environ and os.path.isdir(".dvc"):
@@ -107,6 +110,8 @@ def get_prediction(df_temp: Data_Input):
     "sex",
     "native-country",
 ]
+    # model = pd.read_pickle(r"model.pkl")
+    # encoder = pd.read_pickle(r"encoder.pkl") 
     model = pd.read_pickle(r"model.pkl")
     encoder = pd.read_pickle(r"encoder.pkl") 
 
