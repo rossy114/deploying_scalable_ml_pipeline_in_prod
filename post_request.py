@@ -31,7 +31,7 @@ inputdata = {'age': 28,
 
 response = requests.post(
 
-url='https://udacity-fastapi-deploy-v2.herokuapp.com/predict',
+url='https://ml-dev-ops-salary-app.herokuapp.com/predict',
 
 json=inputdata)
 
