@@ -5,7 +5,7 @@ This papers describes a model card:https://arxiv.org/pdf/1810.03993.pdf
 Model created as part of Udacity ML DevOps course by Ross Fitzgerald
 
 ## Intended Use
-This model should be used to predict the salary of a person based off a number of variabless. The categorial attributes are split into slices and their performaces are also measured.
+This model should be used to predict the salary of a person based off a number of attributes. The categorial attributes are split into slices and their performaces are also measured.
 
 ## Training Data
 We used 80% of data for trainig on and stratified based on salary
