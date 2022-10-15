@@ -11,12 +11,6 @@ import os
 
 path="nd0821-c3-starter-code/starter"
 
-# Add code to load in the data, model and encoder
-df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
-df.columns = df.columns.str.strip()
-df = df.drop_duplicates()
-
-path="nd0821-c3-starter-code/starter"
 df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()

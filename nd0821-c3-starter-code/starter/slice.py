@@ -43,17 +43,12 @@ _, test_set = train_test_split(df, test_size=0.20, random_state=42, stratify=df.
 for cat in cat_features:
         for cls in test_set[cat].unique():
             df_temp = test_set[test_set[cat] == cls]
-            
-#             lb = LabelEncoder() 
-#             y = lb.fit_transform(np.ravel(y))
-            # slice_metrics = []
             encoder = pd.read_pickle(r"nd0821-c3-starter-code/starter/encoder.pkl") 
             X_test, y_test, _, _ = process_data(
                 df_temp,
                 cat_features,
                 label= None, encoder=encoder, lb=lb, training=False)
 
-#             y_preds = model.predict(X_test)
             y_preds=inference(model, X_test)
             y =df_temp.iloc[:,-1:]
             lb = LabelEncoder() 
@@ -63,15 +58,7 @@ for cat in cat_features:
                    "Recall: %s FBeta: %s" % (cat, cls, prc, rcl, fb)
             logging.info(line)
             slice_metrics.append(line)
-            #print(slice_metrics)
-            # print(line)
 
-        # print(slice_metrics)
-
-        # print()
-
-# print(line)
-# print(slice_metrics)
 
 with open('slice_output.txt', 'w') as out:
     for slice_metric in slice_metrics:

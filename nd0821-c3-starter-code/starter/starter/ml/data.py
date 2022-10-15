@@ -44,16 +44,16 @@ def process_data(
         Trained LabelBinarizer if training is True, otherwise returns the binarizer
         passed in.
     """
-    encoder = pd.read_pickle(r"nd0821-c3-starter-code/starter/encoder.pkl") 
     
 
     if label is not None:
         y = X[label]
         X = X.drop([label], axis=1)
     else:
-        label ='salary'
-        X = X.drop([label], axis=1)
         y = np.array([])
+        # label ='salary'
+        # X = X.drop([label], axis=1)
+        # y = np.array([])
 
 
     X_categorical = X[categorical_features].values
@@ -64,18 +64,7 @@ def process_data(
         lb = LabelBinarizer()
         X_categorical = encoder.fit_transform(X_categorical)
         y = lb.fit_transform(y.values).ravel()
-        # y = lb.fit_transform(np.ravel(y))
-        # y = lb.fit_transform(y.values).ravel()
     else:
-        # lb = LabelEncoder() 
-        # y = lb.fit_transform(np.ravel(y))
-        # #encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
-        # encoder = pd.read_pickle(r"nd0821-c3-starter-code/starter/model/encoder.pkl") 
-        # encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
-        # lb = LabelBinarizer()
-        # encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
-        # X_categorical = encoder.fit_transform(X_categorical)
-        encoder = pd.read_pickle(r"nd0821-c3-starter-code/starter/encoder.pkl") 
         X_categorical = encoder.transform(X_categorical)
         try:
             y = lb.transform(y.values).ravel()
@@ -86,30 +75,3 @@ def process_data(
     X = np.concatenate([X_continuous, X_categorical], axis=1)
     return X, y, encoder, lb
    
-
-    # if label is not None:
-    #     y = X[label]
-    #     X = X.drop([label], axis=1)
-    # else:
-    #     y = np.array([])
-
-    # X_categorical = X[categorical_features].values
-    # X_continuous = X.drop(*[categorical_features], axis=1)
-
-    # if training is True:
-    #     encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
-    #     lb = LabelBinarizer()
-    #     X_categorical = encoder.fit_transform(X_categorical)
-    #     y = lb.fit_transform(y.values).ravel()
-    # else:
-
-    #     X_categorical = encoder.transform(X_categorical)
-    #     try:
-    #         y =test_set.iloc[:,-1:]
-    #         y = lb.transform(y.values).ravel()
-    #     # Catch the case where y is None because we're doing inference.
-    #     except AttributeError:
-    #         pass
-
-    # X = np.concatenate([X_continuous, X_categorical], axis=1)
-    # return X, y, encoder, lb
