@@ -1,4 +1,4 @@
-** Deploying a Machine Learning Model on Heroku with FastAPI for Udacity Project in MLDevops Course Module 3 - Deploying a Scalable ML Pipeline in Production
+## Deploying a Machine Learning Model on Heroku with FastAPI for Udacity Project in MLDevops Course Module 3 - Deploying a Scalable ML Pipeline in Production
 
 
 * Project includes the below:
