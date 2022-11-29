@@ -1,34 +1,12 @@
 import os
 import numpy as np
 import pandas as pd
-#Import libraries related to fastAPI
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
-#Import the inference function to be used to predict the values
-# from starter.ml.model import inference
-# from starter.ml.data import process_data
 from ml.model import inference
 from ml.data import process_data
 
-
-#Give Heroku the ability to pull in data from DVC upon app start up.
-# if "DYNO" in os.environ and os.path.isdir(".dvc"):
-#     os.system("dvc config core.no_scm true")
-#     if os.system("dvc pull") != 0:
-#         exit("dvc pull failed")
-#     os.system("rm -r .dvc .apt/usr/lib/dvc")
-
-#Import the model to be used to predict
-# path="nd0821-c3-starter-code/starter"
-# model = pd.read_pickle(r"nd0821-c3-starter-code/starter/model.pkl")
-# model = pd.read_pickle(r"model.pkl")
-# encoder = pd.read_pickle(r"encoder.pkl") 
-# lb = pd.read_pickle(r"lb.pkl") 
-# encoder = pd.read_pickle(r"nd0821-c3-starter-code/starter/encoder.pkl") 
-# model=pd.read_pickle(model, os.path.join(path, "model.pkl"))
-# Encoder=pd.read_pickle(model, os.path.join(path, "encoder.pkl"))
-# pd.read_pickle(model, os.path.join(path, "lb.pkl"))
 
 
 #Initial a FastAPI instance
@@ -109,16 +87,13 @@ def get_prediction(df_temp: Data_Input):
     "race",
     "sex",
     "native-country",
-]
-    # model = pd.read_pickle(r"model.pkl")
-    # encoder = pd.read_pickle(r"encoder.pkl") 
+] 
     model = pd.read_pickle(r"model.pkl")
     encoder = pd.read_pickle(r"encoder.pkl") 
 
     X_processed, _, _, _ = process_data(df, categorical_features=cat_features, label = None, training=False, encoder=encoder)
     prediction = inference(model, X_processed)
     
-    #Interpreting the prediction for the end user
     if prediction == 0:
         prediction = "Salary <= 50k"
     elif prediction == 1:

@@ -1,7 +1,3 @@
-# import pandas as pd
-
-# def slicer:(df, feature):
-# """Funciton that computes perfomance metrics of slices"""
 
 import pandas as pd
 from starter.ml.data import process_data

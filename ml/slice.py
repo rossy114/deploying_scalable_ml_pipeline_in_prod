@@ -28,22 +28,6 @@ cat_features = [
     "native-country",
 ]
 
-# for cls in test_set[cat_features].unique():
-#     # df_temp = test_set[test_set[cat_features] == cls]
-
-#     # X_test, y_test, _, _ = process_data(
-#     #     df_temp,
-#     #     categorical_features=src.common_functions.get_cat_features(),
-#     #     label="salary", encoder=encoder, lb=lb, training=False)
-
-#     #     y_preds = model.predict(X_test)
-
-#     #     precision, recall, fb = compute_model_metrics(y_test, y_preds)
-
-#     #     line = "[%s->%s] Precision: %s " \
-#     #                "Recall: %s FBeta: %s" % (cat_features, cls, precision, recall, fb)
-#     #     logging.info(line)
-#     #     slice_values.append(line)
 
 for cat in cat_features:
         for cls in test_set[cat].unique():
