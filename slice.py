@@ -1,22 +1,22 @@
 
 import pandas as pd
-from starter.ml.data import process_data
-from starter.ml.model import compute_model_metrics, inference
+from ml.data import process_data
+from ml.model import compute_model_metrics, inference
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder, LabelEncoder
 import numpy as np
 import logging
 import os
 
-path="nd0821-c3-starter-code/starter"
+
 
 # Add code to load in the data, model and encoder
-df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
+df = pd.read_csv("data/raw/census.csv")
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()
-model = pd.read_pickle(r"nd0821-c3-starter-code/starter/model.pkl")
-encoder = pd.read_pickle(r"nd0821-c3-starter-code/starter/encoder.pkl") 
-lb = pd.read_pickle(r"nd0821-c3-starter-code/starter/lb.pkl")
+model = pd.read_pickle(r"model.pkl")
+encoder = pd.read_pickle(r"encoder.pkl") 
+lb = pd.read_pickle(r"lb.pkl")
 
 
 
@@ -39,7 +39,7 @@ _, test_set = train_test_split(df, test_size=0.20, random_state=42, stratify=df.
 for cat in cat_features:
         for cls in test_set[cat].unique():
             df_temp = test_set[test_set[cat] == cls]
-            encoder = pd.read_pickle(r"nd0821-c3-starter-code/starter/encoder.pkl") 
+            encoder = pd.read_pickle(r"encoder.pkl") 
             X_test, y_test, _, _ = process_data(
                 df_temp,
                 cat_features,

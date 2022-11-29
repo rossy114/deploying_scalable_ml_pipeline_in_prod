@@ -9,10 +9,9 @@ from sklearn.ensemble import RandomForestClassifier
 import logging
 import os
 
-# path="nd0821-c3-starter-code/starter"
+
 path="/"
 
-# df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
 df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()

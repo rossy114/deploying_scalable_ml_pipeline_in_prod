@@ -1,16 +1,16 @@
 import pandas as pd
-from starter.ml.data import process_data
-from starter.ml.model import compute_model_metrics
+from ml.data import process_data
+from ml.model import compute_model_metrics
 import os
 
-path="nd0821-c3-starter-code/starter"
+
 
 # Add code to load in the data, model and encoder
-df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
+df = pd.read_csv("data/raw/census.csv")
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()
-model = pd.read_pickle(r"starter/model/model.pkl")
-encoder = pd.read_pickle(r"starter/model/encoder.pkl") 
+model = pd.read_pickle(r"model/model.pkl")
+encoder = pd.read_pickle(r"model/encoder.pkl") 
 # lb = pd.read_pickle(r"starter/model/lb.pkl")
 
 _ , test_set = train_test_split(df, test_size=0.20, random_state=42, stratify=df.salary)
