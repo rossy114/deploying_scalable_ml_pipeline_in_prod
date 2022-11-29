@@ -1,8 +1,9 @@
-## Deploying a ML Model on Heroku with FastAPI for Udacity Course- MLDevops Engineer and Project- Deploying a Scalable ML Pipeline in Production
+## Deploying a ML Model on Heroku with FastAPI for Udacity Course MLDevops Engineer 
+## and Project 3- Deploying a Scalable ML Pipeline in Production
 
 
 * Project includes the below:
-    * Set up git with GitHub Actions.
+    * Setting up git with GitHub Actions.
     * Createda machine learning model.
     * Wrote unit tests.
     * Wrote a function that computes model metrics on slices of the data.
