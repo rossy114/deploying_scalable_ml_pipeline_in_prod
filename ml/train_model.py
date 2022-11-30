@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 
 from ml.data import process_data
 from ml.model import train_model
+from ml.model import compute_model_metrics
 import os
 
 
