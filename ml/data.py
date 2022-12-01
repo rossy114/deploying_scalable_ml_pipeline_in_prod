@@ -51,9 +51,9 @@ def process_data(
         X = X.drop([label], axis=1)
     else:
         y = np.array([])
-        # label ='salary'
-        # X = X.drop([label], axis=1)
-        # y = np.array([])
+        label ='salary'
+        X = X.drop([label], axis=1)
+        y = np.array([])
 
 
     X_categorical = X[categorical_features].values

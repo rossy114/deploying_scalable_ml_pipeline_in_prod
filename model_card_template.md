@@ -14,6 +14,14 @@ We used 80% of data for trainig on and stratified based on salary
 We held-out 20% of data for testing
 
 ## Metrics
-Metrics used: fbeta_score, precision_score and recall_score.
+Metrics and Performance on overall dataset: 
+											Fbeta Score:0.70098
+											Precision Score:0.7772 
+											Recall Score:0.6384
 
 
+## Ethical Considerations
+The model was never debiased and there were inbalances in certain variable slices so more work may needed to be done in this area.
+
+## Caveats and Recommendations
+Some slices performed condsiderably worse then other as shown in the slice_outut.txt. More data for some of the underepresented variable slices may lead to improvements.

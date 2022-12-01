@@ -3,7 +3,7 @@
 
 * Project includes the below:
     * Setting up git with GitHub Actions.
-    * Createda machine learning model.
+    * Created machine learning model.
     * Wrote unit tests.
     * Wrote a function that computes model metrics on slices of the data.
     * Wrote a model card.

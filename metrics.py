@@ -2,9 +2,9 @@ import pandas as pd
 from ml.data import process_data
 from ml.model import compute_model_metrics, inference
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelBinarizer, OneHotEncoder, LabelEncoder
-import os
-
+from sklearn.preprocessing import  OneHotEncoder, LabelEncoder
+# import os
+import numpy as np
 
 
 # Add code to load in the data, model and encoder
@@ -36,9 +36,8 @@ X_test, y_test, _, _ = process_data(
                 cat_features,
                 label= None, encoder=encoder, lb=lb, training=False)
 y_preds=inference(model, X_test)
-y =X_test.iloc[:,-1:]
-lb = LabelEncoder() 
+y =test_set.iloc[:,-1:]
+# lb = LabelEncoder() 
 y = lb.fit_transform(np.ravel(y))
 prc, rcl, fb = compute_model_metrics(y, y_preds)
-
-print(pcr, rcl, fb)
+print(f"Precision: {prc} \nRecall: {rcl}\nFbeta Score: {fb}")
