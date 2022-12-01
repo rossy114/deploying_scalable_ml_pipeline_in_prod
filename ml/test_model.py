@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from ml.data import process_data
-from ml.model import compute_model_metrics, inference, train_model
+from data import process_data
+from model import compute_model_metrics, inference, train_model
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder, LabelEncoder
 # from starter.ml.model import train_model, compute_model_metrics, inference
