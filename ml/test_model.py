@@ -10,8 +10,10 @@ import logging
 import os
 
 
-path="/"
-
+os.chdir("..")
+path=(os.path.abspath(os.curdir))
+# path="os.chdir("..")"
+# print(path)
 df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()
