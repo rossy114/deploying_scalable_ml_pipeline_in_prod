@@ -2,7 +2,7 @@ import pandas as pd
 from data import process_data
 from model import compute_model_metrics
 import os
-
+import numpy as np
 
 path="/"
 # Add code to load in the data, model and encoder
