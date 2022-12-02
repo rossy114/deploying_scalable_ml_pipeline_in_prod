@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from data import process_data
-from model import compute_model_metrics, inference, train_model
+from ml.data import process_data
+from ml.model import compute_model_metrics, inference, train_model
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder, LabelEncoder
 # from starter.ml.model import train_model, compute_model_metrics, inference
@@ -10,10 +10,11 @@ import logging
 import os
 
 
-os.chdir("..")
-path=(os.path.abspath(os.curdir))
+# os.chdir("..")
+# path=(os.path.abspath(os.curdir))
 # path="os.chdir("..")"
 # print(path)
+path=("/")
 df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()

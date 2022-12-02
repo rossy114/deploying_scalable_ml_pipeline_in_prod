@@ -30,7 +30,7 @@ cat_features = [
 X_train, y_train, encoder, lb = process_data(
 train_set, categorical_features=cat_features, label="salary", training=True
     )
-# Train and save a model.
+# Train and save a model
 model = train_model(X_train, y_train)
 
 
