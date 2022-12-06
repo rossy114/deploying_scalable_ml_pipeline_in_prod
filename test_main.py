@@ -4,8 +4,13 @@ from main import app
 # from starter.main import app
 import json
 import pandas as pd
+import os 
+
 
 client = TestClient(app)
+
+# path=(os.path.dirname(os.getcwd()))
+# print(path)
 
 
 def test_get():
