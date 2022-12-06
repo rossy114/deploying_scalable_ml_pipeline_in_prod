@@ -62,7 +62,7 @@ def test_post_greater_then():
     assert response.status_code == 200
     assert json.loads(response.text)["prediction"] == "Salary => 50k"
 
-if __name__ == "__main__":
-    test_get()
-    test_post_less_then()
-    test_post_greater_then()
+# if __name__ == "__main__":
+#     test_get()
+#     test_post_less_then()
+#     test_post_greater_then()
