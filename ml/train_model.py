@@ -1,13 +1,14 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from ml.data import process_data
-from ml.model import train_model
-from ml.model import compute_model_metrics
+from data import process_data
+from model import train_model
+from model import compute_model_metrics
 import os
 
 
-path="/"
+path=(os.path.dirname(os.getcwd()))
+# path="/"
 df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()
