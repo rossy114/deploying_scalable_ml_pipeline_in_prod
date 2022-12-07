@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 import pytest
-# from main import app
-from Project.main import app
+from main import app
+# from Project.main import app
 import json
 import pandas as pd
 import os 
