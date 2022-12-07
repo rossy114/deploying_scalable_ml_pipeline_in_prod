@@ -1,7 +1,5 @@
 from fastapi.testclient import TestClient
 import pytest
-# from main import app
-# from Project.main import app
 from deploying_scalable_ml_pipeline_in_prod.main import app
 
 import json
