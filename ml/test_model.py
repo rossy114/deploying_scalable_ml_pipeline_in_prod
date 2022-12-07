@@ -1,26 +1,29 @@
 import pandas as pd
 import numpy as np
-from data import process_data
-from model import compute_model_metrics, inference, train_model
+# from data import process_data
+from Project.ml.data import process_data
+# from model import compute_model_metrics, inference, train_model
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder, LabelEncoder
-# from starter.ml.model import train_model, compute_model_metrics, inference
+from Project.ml.model import train_model, compute_model_metrics, inference
 from sklearn.ensemble import RandomForestClassifier
 import logging
 import os
 
 
-# os.chdir("..")
-# path=(os.path.abspath(os.curdir))
+os.chdir("..")
+path=(os.path.abspath(os.curdir))
 # path="os.chdir("..")"
 # print(path)
 # print(os.path.dirname(os.getcwd()))
 # os.chdir(os.path.dirname(os.getcwd()))
 # print(os.path.dirname(os.getcwd()))
-path=(os.path.dirname(os.getcwd()))
-print(path)
+# path=(os.path.dirname(os.getcwd()))
+# print(path)
 # path=("/")
-df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
+# path=("Project/")
+# df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
+df = pd.read_csv("Project/data/raw/census.csv")
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()
 

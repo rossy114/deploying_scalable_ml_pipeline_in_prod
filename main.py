@@ -4,8 +4,10 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
-from ml.model import inference
-from ml.data import process_data
+# from ml.model import inference
+# from ml.data import process_data
+from Project.ml.model import inference
+from Project.ml.data import process_data
 
 
 
