@@ -6,8 +6,10 @@ from pydantic import BaseModel
 from typing import List
 # from ml.model import inference
 # from ml.data import process_data
-from Project.ml.model import inference
-from Project.ml.data import process_data
+# from Project.ml.model import inference
+# from Project.ml.data import process_data
+from deploying_scalable_ml_pipeline_in_prod.ml.model import inference
+from deploying_scalable_ml_pipeline_in_prod.ml.data import process_data
 
 
 
