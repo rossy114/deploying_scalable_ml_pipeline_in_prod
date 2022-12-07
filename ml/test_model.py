@@ -2,9 +2,11 @@ import pandas as pd
 import numpy as np
 # from data import process_data
 # from Project.ml.data import process_data
-from ml.data import process_data
+# from ml.data import process_data
+from deploying_scalable_ml_pipeline_in_prod.ml.data import process_data
 # from model import compute_model_metrics, inference, train_model
-from ml.model import train_model, compute_model_metrics, inference
+from deploying_scalable_ml_pipeline_in_prod.ml.model import train_model, compute_model_metrics, inference
+# from ml.model import train_model, compute_model_metrics, inference
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder, LabelEncoder
 # from Project.ml.model import train_model, compute_model_metrics, inference
