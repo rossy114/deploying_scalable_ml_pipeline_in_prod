@@ -1,101 +1,101 @@
-[workclass-> Private] Precision: 0.7730138713745272 Recall: 0.6142284569138277 FBeta: 0.6845337800111669
-[workclass-> Local-gov] Precision: 0.7410714285714286 Recall: 0.680327868852459 FBeta: 0.7094017094017093
-[workclass-> Self-emp-not-inc] Precision: 0.8055555555555556 Recall: 0.5918367346938775 FBeta: 0.6823529411764706
-[workclass-> State-gov] Precision: 0.7384615384615385 Recall: 0.7058823529411765 FBeta: 0.7218045112781954
-[workclass-> ?] Precision: 0.8148148148148148 Recall: 0.6111111111111112 FBeta: 0.6984126984126984
-[workclass-> Federal-gov] Precision: 0.75 Recall: 0.6575342465753424 FBeta: 0.7007299270072993
-[workclass-> Self-emp-inc] Precision: 0.8403361344537815 Recall: 0.8064516129032258 FBeta: 0.8230452674897119
-[workclass-> Never-worked] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[workclass-> Without-pay] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[education-> Masters] Precision: 0.8502673796791443 Recall: 0.888268156424581 FBeta: 0.8688524590163934
-[education-> Bachelors] Precision: 0.7682403433476395 Recall: 0.8117913832199547 FBeta: 0.7894156560088204
-[education-> 12th] Precision: 1.0 Recall: 0.25 FBeta: 0.4
-[education-> Assoc-acdm] Precision: 0.6851851851851852 Recall: 0.6981132075471698 FBeta: 0.6915887850467289
-[education-> Some-college] Precision: 0.7666666666666667 Recall: 0.4842105263157895 FBeta: 0.5935483870967742
-[education-> HS-grad] Precision: 0.7204968944099379 Recall: 0.3483483483483483 FBeta: 0.4696356275303644
-[education-> Doctorate] Precision: 0.84 Recall: 0.9264705882352942 FBeta: 0.881118881118881
-[education-> Assoc-voc] Precision: 0.7321428571428571 Recall: 0.5 FBeta: 0.5942028985507246
-[education-> 11th] Precision: 1.0 Recall: 0.36363636363636365 FBeta: 0.5333333333333333
-[education-> 1st-4th] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[education-> Prof-school] Precision: 0.797979797979798 Recall: 0.9518072289156626 FBeta: 0.8681318681318682
-[education-> 10th] Precision: 1.0 Recall: 0.07142857142857142 FBeta: 0.13333333333333333
-[education-> Preschool] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[education-> 7th-8th] Precision: 1.0 Recall: 0.16666666666666666 FBeta: 0.2857142857142857
-[education-> 9th] Precision: 1.0 Recall: 0.14285714285714285 FBeta: 0.25
-[education-> 5th-6th] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[marital-status-> Never-married] Precision: 0.9166666666666666 Recall: 0.39285714285714285 FBeta: 0.55
-[marital-status-> Married-civ-spouse] Precision: 0.7671345995045417 Recall: 0.6866223207686623 FBeta: 0.7246489859594385
-[marital-status-> Divorced] Precision: 0.9285714285714286 Recall: 0.26804123711340205 FBeta: 0.41600000000000004
-[marital-status-> Widowed] Precision: 1.0 Recall: 0.4166666666666667 FBeta: 0.5882352941176471
-[marital-status-> Separated] Precision: 1.0 Recall: 0.4666666666666667 FBeta: 0.6363636363636364
-[marital-status-> Married-spouse-absent] Precision: 1.0 Recall: 0.25 FBeta: 0.4
-[marital-status-> Married-AF-spouse] Precision: 1.0 Recall: 0.0 FBeta: 0.0
-[occupation-> Machine-op-inspct] Precision: 0.7894736842105263 Recall: 0.3 FBeta: 0.4347826086956521
-[occupation-> Adm-clerical] Precision: 0.7027027027027027 Recall: 0.4642857142857143 FBeta: 0.5591397849462365
-[occupation-> Other-service] Precision: 1.0 Recall: 0.1 FBeta: 0.18181818181818182
-[occupation-> Exec-managerial] Precision: 0.8253968253968254 Recall: 0.7819548872180451 FBeta: 0.803088803088803
-[occupation-> Craft-repair] Precision: 0.6545454545454545 Recall: 0.4022346368715084 FBeta: 0.4982698961937716
-[occupation-> Prof-specialty] Precision: 0.7932816537467701 Recall: 0.8434065934065934 FBeta: 0.8175765645805593
-[occupation-> Handlers-cleaners] Precision: 1.0 Recall: 0.2727272727272727 FBeta: 0.42857142857142855
-[occupation-> ?] Precision: 0.8148148148148148 Recall: 0.6111111111111112 FBeta: 0.6984126984126984
-[occupation-> Sales] Precision: 0.7738095238095238 Recall: 0.6132075471698113 FBeta: 0.6842105263157895
-[occupation-> Protective-serv] Precision: 0.7857142857142857 Recall: 0.55 FBeta: 0.6470588235294117
-[occupation-> Transport-moving] Precision: 0.5357142857142857 Recall: 0.2459016393442623 FBeta: 0.3370786516853933
-[occupation-> Tech-support] Precision: 0.7368421052631579 Recall: 0.6666666666666666 FBeta: 0.7
-[occupation-> Farming-fishing] Precision: 1.0 Recall: 0.3 FBeta: 0.4615384615384615
-[occupation-> Priv-house-serv] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[occupation-> Armed-Forces] Precision: 0.0 Recall: 1.0 FBeta: 0.0
-[relationship-> Not-in-family] Precision: 0.9122807017543859 Recall: 0.3270440251572327 FBeta: 0.48148148148148145
-[relationship-> Husband] Precision: 0.7607879924953096 Recall: 0.6861252115059222 FBeta: 0.7215302491103203
-[relationship-> Unmarried] Precision: 1.0 Recall: 0.358974358974359 FBeta: 0.5283018867924528
-[relationship-> Own-child] Precision: 1.0 Recall: 0.42857142857142855 FBeta: 0.6
-[relationship-> Other-relative] Precision: 1.0 Recall: 0.2222222222222222 FBeta: 0.3636363636363636
-[relationship-> Wife] Precision: 0.8111888111888111 Recall: 0.703030303030303 FBeta: 0.7532467532467532
-[race-> White] Precision: 0.7749576988155669 Recall: 0.6482661004953999 FBeta: 0.7059730250481695
-[race-> Asian-Pac-Islander] Precision: 0.7291666666666666 Recall: 0.6363636363636364 FBeta: 0.6796116504854369
-[race-> Black] Precision: 0.86 Recall: 0.4942528735632184 FBeta: 0.6277372262773723
-[race-> Amer-Indian-Eskimo] Precision: 0.75 Recall: 0.3333333333333333 FBeta: 0.46153846153846156
-[race-> Other] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[sex-> Female] Precision: 0.8488372093023255 Recall: 0.5748031496062992 FBeta: 0.6854460093896713
-[sex-> Male] Precision: 0.7661290322580645 Recall: 0.6506849315068494 FBeta: 0.7037037037037037
-[native-country-> United-States] Precision: 0.7793867120954003 Recall: 0.6349757113115891 FBeta: 0.6998087954110898
-[native-country-> Dominican-Republic] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Italy] Precision: 0.875 Recall: 0.7777777777777778 FBeta: 0.823529411764706
-[native-country-> Portugal] Precision: 1.0 Recall: 0.0 FBeta: 0.0
-[native-country-> Puerto-Rico] Precision: 0.8 Recall: 1.0 FBeta: 0.888888888888889
-[native-country-> Canada] Precision: 0.3333333333333333 Recall: 0.25 FBeta: 0.28571428571428575
-[native-country-> India] Precision: 0.6153846153846154 Recall: 1.0 FBeta: 0.761904761904762
-[native-country-> ?] Precision: 0.8214285714285714 Recall: 0.7666666666666667 FBeta: 0.793103448275862
-[native-country-> Haiti] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Mexico] Precision: 1.0 Recall: 0.5 FBeta: 0.6666666666666666
-[native-country-> Cuba] Precision: 1.0 Recall: 0.5 FBeta: 0.6666666666666666
-[native-country-> Philippines] Precision: 0.8181818181818182 Recall: 0.6923076923076923 FBeta: 0.7500000000000001
-[native-country-> Hungary] Precision: 1.0 Recall: 0.0 FBeta: 0.0
-[native-country-> Poland] Precision: 0.6666666666666666 Recall: 1.0 FBeta: 0.8
-[native-country-> China] Precision: 0.75 Recall: 0.75 FBeta: 0.75
-[native-country-> Germany] Precision: 0.8 Recall: 0.5714285714285714 FBeta: 0.6666666666666666
-[native-country-> South] Precision: 0.6666666666666666 Recall: 0.2857142857142857 FBeta: 0.4
-[native-country-> Jamaica] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Ecuador] Precision: 0.0 Recall: 1.0 FBeta: 0.0
-[native-country-> Taiwan] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> England] Precision: 1.0 Recall: 0.5 FBeta: 0.6666666666666666
-[native-country-> Japan] Precision: 0.8333333333333334 Recall: 0.7142857142857143 FBeta: 0.7692307692307692
-[native-country-> Guatemala] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> El-Salvador] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Vietnam] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Nicaragua] Precision: 1.0 Recall: 0.0 FBeta: 0.0
-[native-country-> Peru] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Yugoslavia] Precision: 0.0 Recall: 0.0 FBeta: 0.0
-[native-country-> France] Precision: 0.5 Recall: 1.0 FBeta: 0.6666666666666666
-[native-country-> Columbia] Precision: 0.0 Recall: 1.0 FBeta: 0.0
-[native-country-> Honduras] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Cambodia] Precision: 0.0 Recall: 0.0 FBeta: 0.0
-[native-country-> Trinadad&Tobago] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Iran] Precision: 1.0 Recall: 0.0 FBeta: 0.0
-[native-country-> Outlying-US(Guam-USVI-etc)] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Laos] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Hong] Precision: 0.5 Recall: 1.0 FBeta: 0.6666666666666666
-[native-country-> Thailand] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Greece] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Ireland] Precision: 1.0 Recall: 1.0 FBeta: 1.0
-[native-country-> Scotland] Precision: 1.0 Recall: 1.0 FBeta: 1.0
+[workclass = ?] n=357  precision=0.760  recall=0.528  F1=0.623
+[workclass = Federal-gov] n=191  precision=0.771  recall=0.740  F1=0.755
+[workclass = Local-gov] n=410  precision=0.762  recall=0.656  F1=0.705
+[workclass = Never-worked] n=2  precision=1.000  recall=1.000  F1=1.000
+[workclass = Private] n=4574  precision=0.774  recall=0.632  F1=0.696
+[workclass = Self-emp-inc] n=215  precision=0.842  recall=0.815  F1=0.828
+[workclass = Self-emp-not-inc] n=499  precision=0.815  recall=0.599  F1=0.690
+[workclass = State-gov] n=258  precision=0.738  recall=0.706  F1=0.722
+[workclass = Without-pay] n=2  precision=1.000  recall=1.000  F1=1.000
+[education = 10th] n=185  precision=1.000  recall=0.071  F1=0.133
+[education = 11th] n=244  precision=1.000  recall=0.364  F1=0.533
+[education = 12th] n=75  precision=1.000  recall=0.250  F1=0.400
+[education = 1st-4th] n=37  precision=1.000  recall=1.000  F1=1.000
+[education = 5th-6th] n=64  precision=1.000  recall=1.000  F1=1.000
+[education = 7th-8th] n=127  precision=1.000  recall=0.167  F1=0.286
+[education = 9th] n=118  precision=1.000  recall=0.143  F1=0.250
+[education = Assoc-acdm] n=224  precision=0.698  recall=0.698  F1=0.698
+[education = Assoc-voc] n=271  precision=0.774  recall=0.500  F1=0.607
+[education = Bachelors] n=1075  precision=0.766  recall=0.816  F1=0.790
+[education = Doctorate] n=90  precision=0.836  recall=0.897  F1=0.865
+[education = HS-grad] n=2091  precision=0.727  recall=0.375  F1=0.495
+[education = Masters] n=326  precision=0.851  recall=0.894  F1=0.872
+[education = Preschool] n=13  precision=1.000  recall=1.000  F1=1.000
+[education = Prof-school] n=116  precision=0.798  recall=0.952  F1=0.868
+[education = Some-college] n=1452  precision=0.779  recall=0.519  F1=0.623
+[marital-status = Divorced] n=918  precision=0.900  recall=0.278  F1=0.425
+[marital-status = Married-AF-spouse] n=6  precision=1.000  recall=0.000  F1=0.000
+[marital-status = Married-civ-spouse] n=3029  precision=0.771  recall=0.701  F1=0.734
+[marital-status = Married-spouse-absent] n=78  precision=1.000  recall=0.250  F1=0.400
+[marital-status = Never-married] n=2067  precision=0.943  recall=0.393  F1=0.555
+[marital-status = Separated] n=199  precision=1.000  recall=0.467  F1=0.636
+[marital-status = Widowed] n=211  precision=1.000  recall=0.417  F1=0.588
+[occupation = ?] n=359  precision=0.760  recall=0.528  F1=0.623
+[occupation = Adm-clerical] n=765  precision=0.727  recall=0.500  F1=0.593
+[occupation = Armed-Forces] n=1  precision=1.000  recall=1.000  F1=1.000
+[occupation = Craft-repair] n=814  precision=0.661  recall=0.447  F1=0.533
+[occupation = Exec-managerial] n=810  precision=0.838  recall=0.792  F1=0.814
+[occupation = Farming-fishing] n=209  precision=0.700  recall=0.350  F1=0.467
+[occupation = Handlers-cleaners] n=249  precision=0.750  recall=0.273  F1=0.400
+[occupation = Machine-op-inspct] n=402  precision=0.773  recall=0.340  F1=0.472
+[occupation = Other-service] n=668  precision=1.000  recall=0.150  F1=0.261
+[occupation = Priv-house-serv] n=30  precision=1.000  recall=1.000  F1=1.000
+[occupation = Prof-specialty] n=826  precision=0.799  recall=0.841  F1=0.819
+[occupation = Protective-serv] n=118  precision=0.793  recall=0.575  F1=0.667
+[occupation = Sales] n=734  precision=0.767  recall=0.623  F1=0.688
+[occupation = Tech-support] n=189  precision=0.733  recall=0.698  F1=0.715
+[occupation = Transport-moving] n=334  precision=0.583  recall=0.230  F1=0.329
+[relationship = Husband] n=2658  precision=0.765  recall=0.699  F1=0.730
+[relationship = Not-in-family] n=1688  precision=0.914  recall=0.333  F1=0.488
+[relationship = Other-relative] n=178  precision=1.000  recall=0.222  F1=0.364
+[relationship = Own-child] n=982  precision=1.000  recall=0.429  F1=0.600
+[relationship = Unmarried] n=681  precision=1.000  recall=0.359  F1=0.528
+[relationship = Wife] n=321  precision=0.811  recall=0.727  F1=0.767
+[race = Amer-Indian-Eskimo] n=66  precision=0.750  recall=0.333  F1=0.462
+[race = Asian-Pac-Islander] n=208  precision=0.704  recall=0.691  F1=0.697
+[race = Black] n=644  precision=0.873  recall=0.552  F1=0.676
+[race = Other] n=65  precision=1.000  recall=1.000  F1=1.000
+[race = White] n=5525  precision=0.779  recall=0.657  F1=0.713
+[sex = Female] n=2130  precision=0.838  recall=0.591  F1=0.693
+[sex = Male] n=4378  precision=0.771  recall=0.663  F1=0.713
+[native-country = ?] n=127  precision=0.857  recall=0.800  F1=0.828
+[native-country = Cambodia] n=4  precision=0.500  recall=1.000  F1=0.667
+[native-country = Canada] n=26  precision=0.333  recall=0.250  F1=0.286
+[native-country = China] n=15  precision=0.750  recall=0.750  F1=0.750
+[native-country = Columbia] n=14  precision=0.000  recall=1.000  F1=0.000
+[native-country = Cuba] n=13  precision=1.000  recall=0.500  F1=0.667
+[native-country = Dominican-Republic] n=19  precision=1.000  recall=1.000  F1=1.000
+[native-country = Ecuador] n=6  precision=0.000  recall=1.000  F1=0.000
+[native-country = El-Salvador] n=25  precision=1.000  recall=1.000  F1=1.000
+[native-country = England] n=15  precision=1.000  recall=0.500  F1=0.667
+[native-country = France] n=4  precision=0.667  recall=1.000  F1=0.800
+[native-country = Germany] n=25  precision=0.800  recall=0.571  F1=0.667
+[native-country = Greece] n=2  precision=1.000  recall=1.000  F1=1.000
+[native-country = Guatemala] n=12  precision=1.000  recall=1.000  F1=1.000
+[native-country = Haiti] n=11  precision=1.000  recall=1.000  F1=1.000
+[native-country = Honduras] n=1  precision=1.000  recall=1.000  F1=1.000
+[native-country = Hong] n=3  precision=0.500  recall=1.000  F1=0.667
+[native-country = Hungary] n=4  precision=1.000  recall=0.000  F1=0.000
+[native-country = India] n=22  precision=0.615  recall=1.000  F1=0.762
+[native-country = Iran] n=8  precision=1.000  recall=0.333  F1=0.500
+[native-country = Ireland] n=2  precision=1.000  recall=1.000  F1=1.000
+[native-country = Italy] n=16  precision=0.857  recall=0.667  F1=0.750
+[native-country = Jamaica] n=20  precision=1.000  recall=1.000  F1=1.000
+[native-country = Japan] n=16  precision=0.833  recall=0.714  F1=0.769
+[native-country = Laos] n=4  precision=1.000  recall=1.000  F1=1.000
+[native-country = Mexico] n=130  precision=1.000  recall=0.500  F1=0.667
+[native-country = Nicaragua] n=9  precision=1.000  recall=0.000  F1=0.000
+[native-country = Outlying-US(Guam-USVI-etc)] n=3  precision=1.000  recall=1.000  F1=1.000
+[native-country = Peru] n=4  precision=0.000  recall=1.000  F1=0.000
+[native-country = Philippines] n=43  precision=0.692  recall=0.692  F1=0.692
+[native-country = Poland] n=10  precision=0.667  recall=1.000  F1=0.800
+[native-country = Portugal] n=6  precision=1.000  recall=0.000  F1=0.000
+[native-country = Puerto-Rico] n=23  precision=1.000  recall=1.000  F1=1.000
+[native-country = Scotland] n=2  precision=1.000  recall=1.000  F1=1.000
+[native-country = South] n=23  precision=0.667  recall=0.286  F1=0.400
+[native-country = Taiwan] n=8  precision=1.000  recall=1.000  F1=1.000
+[native-country = Thailand] n=3  precision=1.000  recall=1.000  F1=1.000
+[native-country = Trinadad&Tobago] n=5  precision=1.000  recall=1.000  F1=1.000
+[native-country = United-States] n=5817  precision=0.783  recall=0.647  F1=0.709
+[native-country = Vietnam] n=4  precision=1.000  recall=1.000  F1=1.000
+[native-country = Yugoslavia] n=4  precision=0.000  recall=0.000  F1=0.000

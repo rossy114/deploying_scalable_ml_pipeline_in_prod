@@ -1,40 +1,16 @@
+"""Send an example request to a running API (defaults to a local server)."""
+import sys
 
 import requests
 
-inputdata = {'age': 19,
+URL = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8000"
 
-'workclass': 'Private',
+record = {
+    "age": 45, "workclass": "Private", "fnlgt": 160000, "education": "Doctorate",
+    "education_num": 16, "marital_status": "Married-civ-spouse", "occupation": "Prof-specialty",
+    "relationship": "Husband", "race": "White", "sex": "Male", "capital_gain": 15024,
+    "capital_loss": 0, "hours_per_week": 50, "native_country": "United-States",
+}
 
-'fnlgt': 12234,
-
-'education': 'Bachelors',
-
-'education_num': 12,
-
-'marital_status': 'Married_civ_spouse',
-
-'occupation': 'Prof_specialty',
-
-'relationship': 'Wife',
-
-'race': 'White',
-
-'sex': 'Female',
-
-'capital_gain': 0,
-
-'capital_loss': 0,
-
-'hours_per_week': 40,
-
-'native_country': 'Cuba'}
-
-response = requests.post(
-
-url='https://ml-dev-ops-salary-app.herokuapp.com/predict',
-
-json=inputdata)
-
-print(response.status_code)
-
-print(response.json())
+response = requests.post(f"{URL}/predict", json=record, timeout=10)
+print(response.status_code, response.json())

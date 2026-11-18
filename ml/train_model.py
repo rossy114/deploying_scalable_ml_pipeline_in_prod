@@ -1,40 +1,27 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
+"""Train the model and save it with its encoder and label binarizer.
 
-from data import process_data
-from model import train_model
-from model import compute_model_metrics
-import os
-
-
-path=(os.path.dirname(os.getcwd()))
-# path="/"
-df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
-df.columns = df.columns.str.strip()
-df = df.drop_duplicates()
-
-train_set, test_set = train_test_split(df, test_size=0.20, random_state=42, stratify=df.salary)
+Run from the repository root:  python -m ml.train_model
+"""
+from ml.config import CAT_FEATURES, LABEL
+from ml.data import load_data, process_data, split_data
+from ml.model import compute_model_metrics, inference, save_artifacts, train_model
 
 
-cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country",
-]
+def main():
+    train_set, test_set = split_data(load_data())
 
-
-X_train, y_train, encoder, lb = process_data(
-train_set, categorical_features=cat_features, label="salary", training=True
+    X_train, y_train, encoder, lb = process_data(
+        train_set, categorical_features=CAT_FEATURES, label=LABEL, training=True
     )
-# Train and save a model
-model = train_model(X_train, y_train)
+    model = train_model(X_train, y_train)
+    save_artifacts(model, encoder, lb)
+
+    X_test, y_test, _, _ = process_data(
+        test_set, CAT_FEATURES, label=LABEL, training=False, encoder=encoder, lb=lb
+    )
+    precision, recall, fbeta = compute_model_metrics(y_test, inference(model, X_test))
+    print(f"Test set  precision: {precision:.3f}  recall: {recall:.3f}  F1: {fbeta:.3f}")
 
 
-pd.to_pickle(model, os.path.join(path, "model.pkl"))
-pd.to_pickle(model, os.path.join(path, "encoder.pkl"))
-pd.to_pickle(model, os.path.join(path, "lb.pkl"))
+if __name__ == "__main__":
+    main()

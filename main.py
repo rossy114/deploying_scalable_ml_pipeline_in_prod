@@ -1,103 +1,88 @@
-import os
-import numpy as np
+"""FastAPI app serving the census income classifier."""
+from contextlib import asynccontextmanager
+
 import pandas as pd
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from typing import List
-from deploying_scalable_ml_pipeline_in_prod.ml.model import inference
-from deploying_scalable_ml_pipeline_in_prod.ml.data import process_data
+from fastapi import FastAPI
+from pydantic import BaseModel, ConfigDict, Field
+
+from ml.config import CAT_FEATURES
+from ml.data import process_data
+from ml.model import inference, load_artifacts
+
+artifacts = {}
 
 
-
-#Initial a FastAPI instance
-app = FastAPI()
-
-# pydantic models
-class Data_Input(BaseModel):
-    age : int = 34
-    workclass : str =  "State-gov"
-    fnlgt : int = 77516
-    education : str = "Divorced"
-    education_num : int = 14
-    marital_status : str = "Married-civ-spouse"
-    occupation : str = "Handlers-cleaners"
-    relationship : str = "Not-in-family"
-    race : str = "White"
-    sex : str = "Male"
-    capital_gain : int = 18084
-    capital_loss : int = 0
-    hours_per_week : int = 40
-    native_country : str = "United-States"
-
-class Data_Output(BaseModel):
-    #Prediction will be either >=50K or <=50K 
-    prediction: str 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Load the model once at startup instead of on every request.
+    artifacts["model"], artifacts["encoder"], artifacts["lb"] = load_artifacts()
+    yield
+    artifacts.clear()
 
 
-#The Welcome page
+app = FastAPI(
+    title="Census Income Classifier",
+    description="Predicts whether a person earns more than $50K a year from census attributes.",
+    version="1.1.0",
+    lifespan=lifespan,
+)
+
+
+class CensusInput(BaseModel):
+    """One person's census record. JSON uses snake_case; the model uses the CSV's hyphenated names."""
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        json_schema_extra={
+            "example": {
+                "age": 39,
+                "workclass": "State-gov",
+                "fnlgt": 77516,
+                "education": "Bachelors",
+                "education_num": 13,
+                "marital_status": "Never-married",
+                "occupation": "Adm-clerical",
+                "relationship": "Not-in-family",
+                "race": "White",
+                "sex": "Male",
+                "capital_gain": 2174,
+                "capital_loss": 0,
+                "hours_per_week": 40,
+                "native_country": "United-States",
+            }
+        },
+    )
+
+    age: int
+    workclass: str
+    fnlgt: int
+    education: str
+    education_num: int = Field(alias="education-num")
+    marital_status: str = Field(alias="marital-status")
+    occupation: str
+    relationship: str
+    race: str
+    sex: str
+    capital_gain: int = Field(alias="capital-gain")
+    capital_loss: int = Field(alias="capital-loss")
+    hours_per_week: int = Field(alias="hours-per-week")
+    native_country: str = Field(alias="native-country")
+
+
+class Prediction(BaseModel):
+    prediction: str
+
+
 @app.get("/")
 async def root():
-    return {"Welcome"}
-
-# routes
-@app.get("/welcome")
-async def welcome():
-    return {"Welcome": "to the Model!"}
+    return {"message": "Census income classifier. POST a record to /predict, or see /docs."}
 
 
-@app.post("/predict", response_model=Data_Output, status_code=200)
-def get_prediction(df_temp: Data_Input):
-    #Reading the input data
-    age = df_temp.age
-    workclass = df_temp.workclass
-    fnlgt = df_temp.fnlgt
-    education = df_temp.education
-    education_num = df_temp.education_num
-    marital_status = df_temp.marital_status
-    occupation = df_temp.occupation
-    relationship = df_temp.relationship
-    race = df_temp.race
-    sex = df_temp.sex
-    capital_gain = df_temp.capital_gain
-    capital_loss = df_temp.capital_loss
-    hours_per_week = df_temp.hours_per_week
-    native_country = df_temp.native_country
-    #Converted the inputs into Dataframe to be processed 
-    df = pd.DataFrame([{"age" : age,
-                        "workclass" : workclass,
-                        "fnlgt" : fnlgt,
-                        "education" : education,
-                        "education-num" : education_num,
-                        "marital-status" : marital_status,
-                        "occupation" : occupation,
-                        "relationship" : relationship,
-                        "race" : race,
-                        "sex" : sex,
-                        "capital-gain" : capital_gain,
-                        "capital-loss" : capital_loss,
-                        "hours-per-week" : hours_per_week,
-                        "native-country" : native_country}])
-    # Process the data with the process_data function.
-    cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country",
-] 
-    model = pd.read_pickle(r"model.pkl")
-    encoder = pd.read_pickle(r"encoder.pkl") 
-
-    X_processed, _, _, _ = process_data(df, categorical_features=cat_features, label = None, training=False, encoder=encoder)
-    prediction = inference(model, X_processed)
-    
-    if prediction == 0:
-        prediction = "Salary <= 50k"
-    elif prediction == 1:
-        prediction = "Salary => 50k"
-    #Response dictionary
-    response_object = {"prediction": prediction}
-    return response_object
+@app.post("/predict", response_model=Prediction)
+async def predict(record: CensusInput):
+    df = pd.DataFrame([record.model_dump(by_alias=True)])
+    X, _, _, _ = process_data(
+        df, categorical_features=CAT_FEATURES, training=False, encoder=artifacts["encoder"]
+    )
+    label = artifacts["lb"].inverse_transform(inference(artifacts["model"], X))[0]
+    return {"prediction": label}

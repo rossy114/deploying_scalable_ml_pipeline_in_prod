@@ -1,81 +1,58 @@
-import pandas as pd
+"""Unit tests for the data and model functions."""
 import numpy as np
-# from data import process_data
-# from Project.ml.data import process_data
-# from ml.data import process_data
-from deploying_scalable_ml_pipeline_in_prod.ml.data import process_data
-# from model import compute_model_metrics, inference, train_model
-from deploying_scalable_ml_pipeline_in_prod.ml.model import train_model, compute_model_metrics, inference
-# from ml.model import train_model, compute_model_metrics, inference
-from sklearn.model_selection import train_test_split, KFold, cross_val_score
-from sklearn.preprocessing import LabelBinarizer, OneHotEncoder, LabelEncoder
-# from Project.ml.model import train_model, compute_model_metrics, inference
+import pytest
 from sklearn.ensemble import RandomForestClassifier
-import logging
-import os
+
+from ml.config import CAT_FEATURES, LABEL
+from ml.data import load_data, process_data, split_data
+from ml.model import compute_model_metrics, inference, train_model
 
 
-os.chdir("..")
-path=(os.path.abspath(os.curdir))
-# path="os.chdir("..")"
-# print(path)
-# print(os.path.dirname(os.getcwd()))
-# os.chdir(os.path.dirname(os.getcwd()))
-# print(os.path.dirname(os.getcwd()))
-# path=(os.path.dirname(os.getcwd()))
-# print(path)
-# path=("/")
-# path=("Project/")
-# df = pd.read_csv(os.path.join(path, "data/raw/census.csv"))
-# df = pd.read_csv("Project/data/raw/census.csv")
-df = pd.read_csv("deploying_scalable_ml_pipeline_in_prod/data/raw/census.csv")
-df.columns = df.columns.str.strip()
-df = df.drop_duplicates()
-
-train_set, test_set = train_test_split(df, test_size=0.20, random_state=42, stratify=df.salary)
-
-
-cat_features = [
-    "workclass",
-    "education",
-    "marital-status",
-    "occupation",
-    "relationship",
-    "race",
-    "sex",
-    "native-country",
-]
-
-
-X_train, y_train, encoder, lb = process_data(
-train_set, categorical_features=cat_features, label="salary", training=True
+@pytest.fixture(scope="module")
+def processed():
+    train_set, test_set = split_data(load_data())
+    X_train, y_train, encoder, lb = process_data(
+        train_set, CAT_FEATURES, label=LABEL, training=True
     )
+    X_test, y_test, _, _ = process_data(
+        test_set, CAT_FEATURES, label=LABEL, training=False, encoder=encoder, lb=lb
+    )
+    return X_train, y_train, X_test, y_test
 
 
-def test_train_model():
-    #Testfunction will returns a trained RandomForestClassifier
-    model = train_model(X_train, y_train)
-    assert type(model) == RandomForestClassifier
+@pytest.fixture(scope="module")
+def model(processed):
+    X_train, y_train, _, _ = processed
+    return train_model(X_train, y_train)
 
-def test_compute_model_metrics():
-    #Test this will return the three metrics and each ranges from 0 to 1
-    model = train_model(X_train, y_train)
-    preds = inference(model, X_train)
-    metrics = compute_model_metrics(y_train, preds)
+
+def test_process_data_shapes(processed):
+    X_train, y_train, X_test, y_test = processed
+    assert X_train.shape[0] == len(y_train)
+    assert X_train.shape[1] == X_test.shape[1]
+    assert set(np.unique(y_train)) <= {0, 1}
+
+
+def test_inference_mode_without_label():
+    df = load_data().head(5).drop(columns=[LABEL])
+    _, _, encoder, _ = process_data(load_data(), CAT_FEATURES, label=LABEL, training=True)
+    X, y, _, _ = process_data(df, CAT_FEATURES, training=False, encoder=encoder)
+    assert X.shape[0] == 5 and y.size == 0
+
+
+def test_train_model(model):
+    assert isinstance(model, RandomForestClassifier)
+
+
+def test_inference(model, processed):
+    _, _, X_test, _ = processed
+    preds = inference(model, X_test)
+    assert len(preds) == len(X_test)
+    assert np.isin(preds, [0, 1]).all()
+
+
+def test_compute_model_metrics(model, processed):
+    _, _, X_test, y_test = processed
+    metrics = compute_model_metrics(y_test, inference(model, X_test))
     assert len(metrics) == 3
-    assert type(metrics) == tuple
-    for metric in metrics:
-        assert metric >=0 and metric <= 1
-
-
-def test_inference():
-    model = train_model(X_train, y_train)
-    preds = inference(model, X_train)
-    assert len(preds) == len(X_train) #Assert that the length is the same as x_train
-    assert np.all((preds==0)|(preds == 1)) == True #Assert all values are 0 or 1
-
-
-if __name__ == "__main__":
-    test_train_model()
-    test_compute_model_metrics()
-    test_inference()
+    assert all(0 <= m <= 1 for m in metrics)
